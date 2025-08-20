@@ -102,7 +102,7 @@ namespace providers {
   /* 
   HTML stylesheets Import styles
   */
-  export const HTMLStylesheet: ImportStyle[] = [{ value: 0, description: '<link rel="stylesheet"> href="_relativePath_"' }];
+  export const HTMLStylesheet: ImportStyle[] = [{ value: 0, description: '<link rel="stylesheet" href="_relativePath_">' }];
   /* 
   Markdown Import styles
   */
@@ -410,9 +410,9 @@ namespace statements {
     configValue = providers.HTMLStylesheet.find((config: ImportStyle) => config.description === configValue)?.value;
     switch (configValue as number) {
       case 0:
-        return new vscode.SnippetString(`<link href=\"${relativePath}\" rel=\"stylesheet\">`);
+        return new vscode.SnippetString(`<link rel=\"stylesheet\" href=\"${relativePath}\">`);
       default:
-        return new vscode.SnippetString(`<link href=\"${relativePath}\" rel=\"stylesheet\">`);
+        return new vscode.SnippetString(`<link rel=\"stylesheet\" href=\"${relativePath}\">`);
     }
   }
   /**
