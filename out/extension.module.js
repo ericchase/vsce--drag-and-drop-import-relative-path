@@ -84,6 +84,9 @@ function getFileExt(relativePath) {
 function getImportType(relativePath) {
   switch (getFileExt(relativePath)) {
     case '.js':
+    case '.jsx':
+    case '.ts':
+    case '.tsx':
       return 'script';
     case '.css':
       return 'stylesheet';
