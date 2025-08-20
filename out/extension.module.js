@@ -161,7 +161,7 @@ var providers;
     { value: 3, description: "@use '_relativePath_' as *;" },
   ];
   providers.scssImage = [{ value: 0, description: "url('_relativePath_')" }];
-  providers.HTMLScript = [{ value: 0, description: '<script type="text/javascript" src="_relativePath_"></script>' }];
+  providers.HTMLScript = [{ value: 0, description: '<script src="_relativePath_"></script>' }];
   providers.HTMLImage = [{ value: 0, description: '<img src="_relativePath_" alt="sample">' }];
   providers.HTMLStylesheet = [{ value: 0, description: '<link href="_relativePath_" rel="stylesheet">' }];
   providers.markdown = [{ value: 0, description: '![text](_relativePath_)' }];
@@ -376,9 +376,9 @@ var statements;
     configValue = providers.HTMLScript.find((config) => config.description === configValue)?.value;
     switch (configValue) {
       case 0:
-        return new vscode__namespace.SnippetString(`<script type="text/javascript" src="${relativePath}"></script>`);
+        return new vscode__namespace.SnippetString(`<script src="${relativePath}"></script>`);
       default:
-        return new vscode__namespace.SnippetString(`<script type="text/javascript" src="${relativePath}"></script>`);
+        return new vscode__namespace.SnippetString(`<script src="${relativePath}"></script>`);
     }
   }
   statements.htmlScriptImportStatement = htmlScriptImportStatement;

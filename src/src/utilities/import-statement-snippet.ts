@@ -94,7 +94,7 @@ namespace providers {
   /* 
   HTML scripts Import styles
   */
-  export const HTMLScript: ImportStyle[] = [{ value: 0, description: '<script type="text/javascript" src="_relativePath_"></script>' }];
+  export const HTMLScript: ImportStyle[] = [{ value: 0, description: '<script src="_relativePath_"></script>' }];
   /* 
   HTML image Import styles
   */
@@ -380,9 +380,9 @@ namespace statements {
     configValue = providers.HTMLScript.find((config: ImportStyle) => config.description === configValue)?.value;
     switch (configValue as number) {
       case 0:
-        return new vscode.SnippetString(`<script type=\"text/javascript\" src=\"${relativePath}\"></script>`);
+        return new vscode.SnippetString(`<script src=\"${relativePath}\"></script>`);
       default:
-        return new vscode.SnippetString(`<script type=\"text/javascript\" src=\"${relativePath}\"></script>`);
+        return new vscode.SnippetString(`<script src=\"${relativePath}\"></script>`);
     }
   }
   /**
