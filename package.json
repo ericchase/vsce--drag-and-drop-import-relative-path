@@ -15,5 +15,6 @@
     "dev": "bun run tools/build.ts --dev",
     "format": "bunx prettier --write ."
   },
-  "type": "module"
+  "type": "module",
+  "version": "1.0.0"
 }
