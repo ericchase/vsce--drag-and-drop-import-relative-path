@@ -1,0 +1,3 @@
+- Enabled drag-n-drop support for `.jsx`, `.ts`, and `.tsx` files into `.html` files.
+- Changed the code to let the provider cancel/abort instead of sending "Not supported." and "Same file path." notifications to user.
+- Simplified the code base a bit to make future edits easier.

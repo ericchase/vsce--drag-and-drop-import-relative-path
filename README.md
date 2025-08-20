@@ -1,6 +1,17 @@
 ## About
 
-TODO
+The `Drag And Drop Import Relative Path` VSCode extension is great! However, it's a bit restrictive. I removed all the notifications about unsupported drag-n-drop types, and changed the code to return `undefined` so that VSCode can apply default behavior.
+
+- https://github.com/ElecTreeFrying/drag-import-relative-path
+- https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path
+
+Please check the `Releases` page on GitHub to find built `.vsix` files. These files can be dragged directly into VSCode's Extensions sidebar panel to install them.
+
+Please check the `CHANGELOG.md` file for more information about changes.
+
+Another fork to make note of:
+
+- https://github.com/xianghongai/drag-drop-import.git
 
 ## Build Tools V4
 
@@ -8,10 +19,6 @@ For information about my TypeScript library and Build Tools, please visit:
 
 - https://github.com/ericchase-library/ts-library
 - https://github.com/ericchase-library/ts-templates-vscode-extension
-
-## Project Disclaimer
-
-This template may be updated from time to time.
 
 ## Setup & Usage
 
@@ -22,11 +29,3 @@ bun install
 bun run build # full build
 bun run dev # dev mode
 ```
-
-## Copyright & License
-
-**TL;DR:**
-
-> This code is truly free and open source, licensed under the Apache 2.0 License. If you make a copy, _I humbly ask_ that you include the text from the `NOTICE` file somewhere in your project. **_You are not required to!_** You are also not required to include the original `LICENSE-APACHE` or `NOTICE` files, and I would prefer just a copy of the `NOTICE` file text or a link to this repository instead. You can use and modify this code however you like, including using a proprietary license for your changes. The only restriction I maintain is under clause 3 of the Apache 2.0 License regarding patents. If you find any potential license violations within any of my projects, please contact me so that I may resolve them.
-
-A longer explanation can be found in the `README.md` file at https://github.com/ericchase-library/ts-library.
