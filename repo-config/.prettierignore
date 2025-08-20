@@ -1,2 +1,4 @@
 # up to you whether you want to format the build files
 # /out/
+# we don't want to format the original repo
+/src/original-repo/

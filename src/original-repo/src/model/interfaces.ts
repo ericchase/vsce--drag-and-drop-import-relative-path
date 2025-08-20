@@ -4,4 +4,4 @@
 export interface ImportStyle {
   value: number;
   description: string;
-}
+};

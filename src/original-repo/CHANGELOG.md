@@ -6,6 +6,7 @@
 
 [#4]: https://github.com/ElecTreeFrying/drag-import-relative-path/issues/4
 
+
 ## v0.2.4 (2023-3-28)
 
 - Updated [README.md] and [DEMO.md].
@@ -20,56 +21,56 @@
 
 ### Bug fixes
 
-- Fixed a bug related to importing relative paths from the same parent directory.
+* Fixed a bug related to importing relative paths from the same parent directory.
 
 ## v0.2.1 (2023-1-13)
 
 ### Features
 
-- Angular import compatibility for this import style → `import { name } from '_relativePath_';`.
+* Angular import compatibility for this import style → `import { name } from '_relativePath_';`.
 
 ### Updates
 
-- Wrong extension title in settings.
-- Broken version badge url in project details.
+* Wrong extension title in settings.
+* Broken version badge url in project details.
 
 ## v0.2.0 (2023-1-12)
 
 ### Features
 
-- `.tsx` now supports `.scss` file extension. (see table below.)
+* `.tsx` now supports `.scss` file extension. (see table below.)
 
-| Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from) |
-| :-------------------------------: | :----------------------------------------- |
-|              `.tsx`               | self, `.scss`                              |
+| Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)              |
+| :-------------------------------: | :------------------------------------------------------ |
+|              `.tsx`               | self, `.scss`                                           |
 
 ### Updates
 
-- Minor code changes.
+* Minor code changes.
 
 ## v0.1.18 (2022-8-22)
 
 ### Updates
 
-- Removed unused and redundant dependencies.
-- Minor code changes.
+* Removed unused and redundant dependencies.
+* Minor code changes.
 
 ## v0.1.16 (2022-8-22)
 
 ### Updates
 
-- Defined activation events for performance improvement.
+* Defined activation events for performance improvement.
 
 ### Bug fixes
 
-- Checkbox toggle in settings breaks the extension. (Requires users to select an editor)
+* Checkbox toggle in settings breaks the extension. (Requires users to select an editor)
 
 ## v0.1.14 (2022-8-21)
 
 ### Updates
 
-- Resolved compatibility issues with [Auto Import Relative Path] extension.
-- Minor code changes.
+* Resolved compatibility issues with [Auto Import Relative Path] extension.
+* Minor code changes.
 
 [Auto Import Relative Path]: https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import
 
@@ -77,38 +78,38 @@
 
 ### Features
 
-- Badges
-- [DEMO.md]
+* Badges
+* [DEMO.md]
 
 [DEMO.md]: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/DEMO.md
 
 ### Updates
 
-- Updated [README.md]
+* Updated [README.md]
 
 ## v0.1.12 (2022-8-18)
 
 ### Bug fixes
 
-- Wrong import style inserted to HTML and MD on drop.
+* Wrong import style inserted to HTML and MD on drop.
 
 ## v0.1.11 (2022-8-18)
 
 ### Features
 
-- Published extension in marketplace
-- Javascript support
-- React Javascript support
-- Typescript support
-- React Typescript support
-- HTML/Markdown support
-- CSS/SCSS support
-- Codebase Comments
-- Extension configurations
-- Extension pre-publish configurations
-- [LICENSE.md]
-- [CHANGELOG.md]
-- [README.md]
+* Published extension in marketplace
+* Javascript support
+* React Javascript support
+* Typescript support
+* React Typescript support
+* HTML/Markdown support
+* CSS/SCSS support
+* Codebase Comments
+* Extension configurations
+* Extension pre-publish configurations
+* [LICENSE.md]
+* [CHANGELOG.md]
+* [README.md]
 
 [LICENSE.md]: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/LICENSE.md
 [CHANGELOG.md]: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/CHANGELOG.md
@@ -116,4 +117,4 @@
 
 ### To do
 
-- Add support to more languages.
+* Add support to more languages.

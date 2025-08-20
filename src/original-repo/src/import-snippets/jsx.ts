@@ -3,7 +3,11 @@ import * as vscode from 'vscode';
 import { getFileExt } from '../utilities';
 import { FileExtension } from '../model';
 
-export function snippet(relativePath: string, fromFilepath: string): vscode.SnippetString {
+export function snippet(
+  relativePath: string,
+  fromFilepath: string
+): vscode.SnippetString {
+
   switch (getFileExt(fromFilepath) as FileExtension) {
     case '.gif': // Images
     case '.jpeg':
@@ -16,8 +20,8 @@ export function snippet(relativePath: string, fromFilepath: string): vscode.Snip
     case '.html': // HTML
     case '.yml': // YAML
     case '.yaml':
-    case '.md': {
-      // MD
+    case '.md': // MD
+    {
       return new vscode.SnippetString(`import name$1 from '${relativePath + getFileExt(fromFilepath)}';`);
     }
     case '.woff': // Fonts
@@ -25,11 +29,13 @@ export function snippet(relativePath: string, fromFilepath: string): vscode.Snip
     case '.ttf':
     case '.eot':
     case '.css': // Stylesheets
-    case '.scss': {
+    case '.scss':
+    {
       return new vscode.SnippetString(`import '${relativePath + getFileExt(fromFilepath)}';`);
     }
     default: {
       return new vscode.SnippetString(``);
     }
   }
+
 }

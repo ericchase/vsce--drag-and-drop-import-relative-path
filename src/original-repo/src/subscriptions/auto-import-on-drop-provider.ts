@@ -8,7 +8,13 @@ import { htmlSupported, markdownSupported, cssSupported, scssSupported, permitte
   Drag and drop handler
  */
 export class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider {
-  async provideDocumentDropEdits(_document: vscode.TextDocument, position: vscode.Position, dataTransfer: vscode.DataTransfer, token: vscode.CancellationToken): Promise<vscode.DocumentDropEdit> {
+  async provideDocumentDropEdits(
+		_document: vscode.TextDocument,
+		position: vscode.Position,
+		dataTransfer: vscode.DataTransfer,
+		token: vscode.CancellationToken
+	): Promise<vscode.DocumentDropEdit> {
+
     /* 
       Get the active text editor file path and dragged file path from tree view
       */
@@ -28,23 +34,27 @@ export class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider
       */
     if (
       // Checks unsupported drag and drop files
-      (!permittedExts.includes(getFileExt(dropFilePath)) && getFileExt(dragFilePath) !== getFileExt(dropFilePath)) ||
+      (!permittedExts.includes(getFileExt(dropFilePath)) && (getFileExt(dragFilePath) !== getFileExt(dropFilePath)) )
       // Checks HTML to HTML drag and drop
-      (getFileExt(dragFilePath) === '.html' && getFileExt(dropFilePath) === '.html') ||
+      || (getFileExt(dragFilePath) === '.html' && getFileExt(dropFilePath) === '.html')
       // Checks unsupported HTML drag import file extensions
-      (!htmlSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.html') ||
+      || (!htmlSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.html')
       // Checks unsupported Markdown drag import file extensions
-      (!markdownSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.md') ||
+      || (!markdownSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.md')
       // Checks unsupported CSS drag import file extensions
-      (!cssSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.css') ||
+      || (!cssSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.css')
       // Checks unsupported SCSS drag import file extensions
-      (!scssSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.scss')
+      || (!scssSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.scss')
     ) {
       notify(NotifyType.NotSupported);
       return { insertText: relativePath(dropFilePath, dragFilePath) };
     }
 
-    const snippet = importStatementSnippet(getRelativePath(dropFilePath, dragFilePath), dragFilePath, dropFilePath);
+    const snippet = importStatementSnippet(
+      getRelativePath(dropFilePath, dragFilePath),
+      dragFilePath,
+      dropFilePath
+    );
 
     if (snippet.value === '\n') {
       notify(NotifyType.NotSupported);

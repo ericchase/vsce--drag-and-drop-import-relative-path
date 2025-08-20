@@ -13,5 +13,7 @@ export function activate(context: vscode.ExtensionContext) {
   /* 
     Register Drag and drop handler on activation
    */
-  context.subscriptions.push(vscode.languages.registerDocumentDropEditProvider(selectors, new AutoImportOnDropProvider()));
+	context.subscriptions.push(
+    vscode.languages.registerDocumentDropEditProvider(selectors, new AutoImportOnDropProvider())
+  );
 }

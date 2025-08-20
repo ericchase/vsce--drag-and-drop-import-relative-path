@@ -5,5 +5,5 @@ import * as javascriptTypescript from './javascript-typescript';
 export const importStatement = {
   ...htmlMarkdown,
   ...cssScss,
-  ...javascriptTypescript,
+  ...javascriptTypescript
 };

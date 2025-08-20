@@ -77,7 +77,7 @@ Builder.SetCleanUpSteps(
   // This takes a little while, so best to do it once at the end.
   Step_NPM_Install_Extension_Dependencies(),
   Step_Dev_Format({ showlogs: false }),
-  Step_VSCE_Package({ release_dirpath: 'release' }),
+  Step_VSCE_Package({ entrypoint: 'extension.module.ts', increment_version: 'major', release_dirpath: 'release' }),
   //
 );
 

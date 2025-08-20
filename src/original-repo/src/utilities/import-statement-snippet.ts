@@ -6,11 +6,16 @@ import { getFileExt } from '.';
 /**
  * Get calculated import style to append in editor.
  * @param {string} relativePath Calculated relative path from dragged file and text editor.
- * @param {string} fromFilepath Dragged file path.
- * @param {string} toFilepath Dropped file path.
+ * @param {string} fromFilepath Dragged file path. 
+ * @param {string} toFilepath Dropped file path. 
  * @returns Import statement string
  */
-export function importStatementSnippet(relativePath: string, fromFilepath: string, toFilepath: string): vscode.SnippetString {
+export function importStatementSnippet(
+  relativePath: string,
+  fromFilepath: string,
+  toFilepath: string
+): vscode.SnippetString {
+
   switch (getFileExt(toFilepath)) {
     case '.js': {
       return importPath.javascript.snippet(relativePath, fromFilepath);

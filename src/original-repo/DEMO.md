@@ -15,8 +15,9 @@ This [extension] helps developers to quickly and easily import files by dragging
 ## Usage
 
 1. **Drag** supported files from the tree view.
-1. Hold `shift`
+1. Hold `shift` 
 1. **Drop** them into any of your active editors.
+
 
 | Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)                                                                                                                                |
 | :-------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -26,11 +27,12 @@ This [extension] helps developers to quickly and easily import files by dragging
 |              `.jsx`               | self, `.js`, `.json`<br>`.css`,`.sass` `.scss`<br>`.png`, `.jpg`, `.gif`, `.svg`, `.webp`<br>`.woff`, `.woff2`, `.ttf`, `.eot`<br>`.md`, `.yml`, `.yaml`, `.html`         |
 |              `.tsx`               | self, `.ts`, `.js`, `.json`<br>`.css`, `.sass` `.scss`<br>`.png`, `.jpg`, `.gif`, `.svg`, `.webp`<br>`.woff`, `.woff2`, `.ttf`, `.eot`<br>`.md`, `.yml`, `.yaml`, `.html` |
 |              `.css`               | self, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`                                                                                                                            |
-|              `.scss`              | self, `.css`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`                                                                                                                    |
+|              `.scss`              | self,  `.css`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`                                                                                                                   |
+
 
 ## Typescript/Javascript/TSX/JSX support
 
-- Typescript/Javascript/TSX/JSX drag import
+* Typescript/Javascript/TSX/JSX drag import
 
 | Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)                                                                                                                                |
 | :-------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -38,39 +40,39 @@ This [extension] helps developers to quickly and easily import files by dragging
 |              `.jsx`               | self, `.js`, `.json`<br>`.css`,`.sass` `.scss`<br>`.png`, `.jpg`, `.gif`, `.svg`, `.webp`<br>`.woff`, `.woff2`, `.ttf`, `.eot`<br>`.md`, `.yml`, `.yaml`, `.html`         |
 |              `.tsx`               | self, `.ts`, `.js`, `.json`<br>`.css`, `.sass` `.scss`<br>`.png`, `.jpg`, `.gif`, `.svg`, `.webp`<br>`.woff`, `.woff2`, `.ttf`, `.eot`<br>`.md`, `.yml`, `.yaml`, `.html` |
 
-![typescript-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/typescript-demo.gif 'Drag and drop import relative path typescript demo')
+![typescript-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/typescript-demo.gif "Drag and drop import relative path typescript demo")
 
 ## HTML support
 
-- CSS drag import
-- Javascript drag import
-- Images drag import
+* CSS drag import
+* Javascript drag import
+* Images drag import
 
 | Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)              |
 | :-------------------------------: | :------------------------------------------------------ |
 |              `.html`              | `.js`, `.css`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp` |
 
-![html-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/html-demo.gif 'Drag and drop import relative path html demo')
+![html-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/html-demo.gif "Drag and drop import relative path html demo")
 
 ## CSS/SCSS support
 
-- CSS drag import
-- SCSS drag import
+* CSS drag import
+* SCSS drag import
 
-| Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)             |
-| :-------------------------------: | :----------------------------------------------------- |
-|              `.css`               | self, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`         |
-|              `.scss`              | self, `.css`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp` |
+| Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)              |
+| :-------------------------------: | :------------------------------------------------------ |
+|              `.css`               | self, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`          |
+|              `.scss`              | self,  `.css`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp` |
 
-![scss-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/scss-demo.gif 'Drag and drop import relative path scss demo')
+![scss-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/scss-demo.gif "Drag and drop import relative path scss demo")
 
 ## Markdown support
 
-- Markdown drag import
-- Images drag import
+* Markdown drag import
+* Images drag import
 
 | Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)     |
 | :-------------------------------: | :--------------------------------------------- |
 |               `.md`               | self, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp` |
 
-![markdown-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/markdown-demo.gif 'Drag and drop import relative path markdown demo')
+![markdown-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/markdown-demo.gif "Drag and drop import relative path markdown demo")

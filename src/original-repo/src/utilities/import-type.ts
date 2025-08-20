@@ -10,15 +10,10 @@ import { getFileExt } from './file-extension';
  */
 export function getImportType(relativePath: string): ImportType | null {
   switch (getFileExt(relativePath)) {
-    case '.js':
-      return 'script';
-    case '.css':
-      return 'stylesheet';
-    case '.scss':
-      return null;
-    case '.md':
-      return 'markdown';
-    default:
-      return 'image';
+    case '.js':   return 'script';
+    case '.css':  return 'stylesheet';
+    case '.scss': return null;
+    case '.md':   return 'markdown';
+    default:      return 'image';
   }
 }

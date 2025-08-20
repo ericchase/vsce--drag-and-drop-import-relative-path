@@ -20,7 +20,10 @@ export function getRelativePath(from: string, to: string): string {
  * @returns relative file path of dragged and active text editor.
  */
 function relative(from: string, to: string): string {
-  return path.relative(path.dirname(from), to);
+  return path.relative(
+    path.dirname(from),
+    to
+  );
 }
 
 /**
@@ -39,7 +42,7 @@ function toWindowsPath(relativePath: string): string {
  */
 function removeFileExt(relativePath: string): string {
   const ext = getFileExt(relativePath);
-  return relativePath.slice(0, -ext.length);
+  return relativePath.slice(0, -(ext.length));
 }
 
 /**

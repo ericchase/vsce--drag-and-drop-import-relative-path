@@ -7,34 +7,34 @@ import * as vscode from 'vscode';
 export const selectors: vscode.DocumentSelector = [
   {
     language: 'javascript',
-    scheme: 'file',
+    scheme: 'file'
   },
   {
     language: 'javascriptreact',
-    scheme: 'file',
+    scheme: 'file'
   },
   {
     language: 'typescript',
-    scheme: 'file',
+    scheme: 'file'
   },
   {
     language: 'typescriptreact',
-    scheme: 'file',
+    scheme: 'file'
   },
   {
     language: 'css',
-    scheme: 'file',
+    scheme: 'file'
   },
   {
     language: 'scss',
-    scheme: 'file',
+    scheme: 'file'
   },
   {
     language: 'html',
-    scheme: 'file',
+    scheme: 'file'
   },
   {
     language: 'markdown',
-    scheme: 'file',
-  },
+    scheme: 'file'
+  }
 ];
