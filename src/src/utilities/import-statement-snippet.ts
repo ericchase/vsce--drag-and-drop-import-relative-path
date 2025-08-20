@@ -102,7 +102,7 @@ namespace providers {
   /* 
   HTML stylesheets Import styles
   */
-  export const HTMLStylesheet: ImportStyle[] = [{ value: 0, description: '<link href="_relativePath_" rel="stylesheet">' }];
+  export const HTMLStylesheet: ImportStyle[] = [{ value: 0, description: '<link rel="stylesheet"> href="_relativePath_"' }];
   /* 
   Markdown Import styles
   */

@@ -163,7 +163,7 @@ var providers;
   providers.scssImage = [{ value: 0, description: "url('_relativePath_')" }];
   providers.HTMLScript = [{ value: 0, description: '<script src="_relativePath_"></script>' }];
   providers.HTMLImage = [{ value: 0, description: '<img src="_relativePath_" alt="sample">' }];
-  providers.HTMLStylesheet = [{ value: 0, description: '<link href="_relativePath_" rel="stylesheet">' }];
+  providers.HTMLStylesheet = [{ value: 0, description: '<link rel="stylesheet"> href="_relativePath_"' }];
   providers.markdown = [{ value: 0, description: '![text](_relativePath_)' }];
   providers.markdownImage = [
     { value: 0, description: '![alt-text](_relativePath_ "Hover text")' },
