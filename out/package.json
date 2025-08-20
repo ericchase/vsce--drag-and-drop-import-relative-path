@@ -1,0 +1,216 @@
+{
+  "name": "drag-import-relative-path",
+  "displayName": "Drag And Drop Import Relative Path",
+  "description": "This extension improves developer productivity by allowing drag-and-drop file imports.",
+  "publisher": "ElecTreeFrying",
+  "version": "1.2.5",
+  "author": {
+    "name": "John James Ermitaño",
+    "email": "jjgermitano@gmail.com"
+  },
+  "icon": "assets/extension-icon.png",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "homepage": "https://github.com/ElecTreeFrying/drag-import-relative-path/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ElecTreeFrying/drag-import-relative-path.git"
+  },
+  "bugs": {
+    "email": "jam@fisendo.com",
+    "url": "https://github.com/ElecTreeFrying/drag-import-relative-path/issues"
+  },
+  "badges": [
+    {
+      "url": "https://vsmarketplacebadges.dev/version/ElecTreeFrying.drag-import-relative-path.png",
+      "description": "Version badge",
+      "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path"
+    },
+    {
+      "url": "https://vsmarketplacebadges.dev/downloads-short/ElecTreeFrying.drag-import-relative-path.png",
+      "description": "Downloads badge",
+      "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path"
+    }
+  ],
+  "extensionPack": [
+    "ElecTreeFrying.auto-import"
+  ],
+  "galleryBanner": {
+    "color": "#494949",
+    "theme": "dark"
+  },
+  "license": "MIT",
+  "categories": [
+    "Other",
+    "Snippets"
+  ],
+  "keywords": [
+    "drag import",
+    "drag and drop import",
+    "relative import",
+    "auto import",
+    "relative path",
+    "drag",
+    "import",
+    "path",
+    "relative",
+    "angular",
+    "react",
+    "vue",
+    "javascript",
+    "typescript",
+    "css",
+    "scss",
+    "html",
+    "markdown"
+  ],
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact",
+    "onLanguage:css",
+    "onLanguage:scss",
+    "onLanguage:html",
+    "onLanguage:markdown"
+  ],
+  "main": "./extension.module.js",
+  "contributes": {
+    "configuration": [
+      {
+        "title": "Drag And Drop Import Relative Path",
+        "properties": {
+          "importStatements.script.preserveScriptFileExtension": {
+            "title": "Preserve file extension",
+            "description": "Preserve the file extension in the relative path.",
+            "type": "boolean",
+            "default": false
+          },
+          "importStatements.script.javascriptImportStyle": {
+            "title": "Javascript (.ts)/React Javascript(.tsx) import styles",
+            "description": "Supported Javascript (.ts)/React Javascript(.tsx) import styles",
+            "type": "string",
+            "default": "import name from '_relativePath_';",
+            "enum": [
+              "import name from '_relativePath_';",
+              "import { name } from '_relativePath_';",
+              "import { default as name } from '_relativePath_';",
+              "import * as name from '_relativePath_';",
+              "import '_relativePath_';",
+              "var name = require('_relativePath_');",
+              "const name = require('_relativePath_');",
+              "var name = import('_relativePath_');",
+              "const name = import('_relativePath_');"
+            ]
+          },
+          "importStatements.script.typescriptImportStyle": {
+            "title": "Typescript (.ts)/React Typescript(.tsx) import styles",
+            "description": "Supported Typescript (.ts)/React Typescript(.tsx) import styles",
+            "type": "string",
+            "default": "import { name } from '_relativePath_';",
+            "enum": [
+              "import name from '_relativePath_';",
+              "import { name } from '_relativePath_';",
+              "import { default as name } from '_relativePath_';",
+              "import * as name from '_relativePath_';",
+              "import '_relativePath_';"
+            ]
+          },
+          "importStatements.styleSheet.preserveStylesheetFileExtension": {
+            "title": "Preserve file extension",
+            "description": "Preserve the file extension in the relative path.",
+            "type": "boolean",
+            "default": false
+          },
+          "importStatements.styleSheet.cssImportStyle": {
+            "title": "CSS import styles",
+            "description": "Supported CSS import styles",
+            "type": "string",
+            "default": "@import '_relativePath_';",
+            "enum": [
+              "@import '_relativePath_';",
+              "@import url('_relativePath_');"
+            ]
+          },
+          "importStatements.styleSheet.cssImageImportStyle": {
+            "title": "CSS import styles",
+            "description": "Supported CSS import styles",
+            "type": "string",
+            "default": "url('_relativePath_')",
+            "enum": [
+              "url('_relativePath_')"
+            ]
+          },
+          "importStatements.styleSheet.scssImportStyle": {
+            "title": "SCSS import styles",
+            "description": "Supported SCSS import styles",
+            "type": "string",
+            "default": "@import '_relativePath_';",
+            "enum": [
+              "@import '_relativePath_';",
+              "@import url('_relativePath_');",
+              "@use '_relativePath_';",
+              "@use '_relativePath_' as *;"
+            ]
+          },
+          "importStatements.styleSheet.scssImageImportStyle": {
+            "title": "SCSS import styles",
+            "description": "Supported SCSS import styles",
+            "type": "string",
+            "default": "url('_relativePath_')",
+            "enum": [
+              "url('_relativePath_')"
+            ]
+          },
+          "importStatements.markup.htmlScriptImportStyle": {
+            "title": "HTML import styles for script",
+            "description": "Supported HTML import styles for script",
+            "type": "string",
+            "default": "<script type=\"text/javascript\" src=\"_relativePath_\"></script>",
+            "enum": [
+              "<script type=\"text/javascript\" src=\"_relativePath_\"></script>"
+            ]
+          },
+          "importStatements.markup.htmlImageImportStyle": {
+            "title": "HTML image import styles for script",
+            "description": "Supported HTML image import styles for script",
+            "type": "string",
+            "default": "<img src=\"_relativePath_\" alt=\"sample\">",
+            "enum": [
+              "<img src=\"_relativePath_\" alt=\"sample\">"
+            ]
+          },
+          "importStatements.markup.htmlStyleSheetImportStyle": {
+            "title": "HTML import styles from stylesheet",
+            "description": "Supported HTML import styles from stylesheet",
+            "type": "string",
+            "default": "<link href=\"_relativePath_\" rel=\"stylesheet\">",
+            "enum": [
+              "<link href=\"_relativePath_\" rel=\"stylesheet\">"
+            ]
+          },
+          "importStatements.markup.markdownImportStyle": {
+            "title": "Markdown import styles",
+            "description": "Supported markdown import styles",
+            "type": "string",
+            "default": "![text](_relativePath_)",
+            "enum": [
+              "![text](_relativePath_)"
+            ]
+          },
+          "importStatements.markup.markdownImageImportStyle": {
+            "title": "Markdown image import styles",
+            "description": "Supported markdown image import styles",
+            "type": "string",
+            "default": "![alt-text](_relativePath_ \"Hover text\")",
+            "enum": [
+              "![alt-text](_relativePath_ \"Hover text\")",
+              "![alt-text][image] / [image]: _relativePath_ \"Hover text\""
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
