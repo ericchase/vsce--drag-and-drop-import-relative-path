@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
-import { selectors } from './src/providers/selector.js';
-import { AutoImportOnDropProvider } from './src/subscriptions/auto-import-on-drop-provider.js';
+import { selectors } from './modified-src/providers/selector.js';
+import { AutoImportOnDropProvider } from './modified-src/subscriptions/auto-import-on-drop-provider.js';
 
 /**
  * Called when the extension is activated.

@@ -1,5 +1,5 @@
 import { ImportType } from '../model/types.js';
-import { getFileExt } from './file-extension';
+import { getFileExt } from './file-extension.js';
 
 /**
  * Get Import type.

@@ -33,7 +33,7 @@ var path3__namespace = /*#__PURE__*/ _interopNamespaceDefault(path3);
 
 // src/extension.module.ts
 
-// src/src/providers/selector.ts
+// src/modified-src/providers/selector.ts
 var selectors = [
   {
     language: 'javascript',
@@ -69,7 +69,7 @@ var selectors = [
   },
 ];
 
-// src/src/providers/supported-file-extensions.ts
+// src/modified-src/providers/supported-file-extensions.ts
 var supportedImages = ['.gif', '.jpeg', '.jpg', '.png', '.webp'];
 var htmlSupported = ['.js', '.jsx', '.ts', '.tsx', '.css', ...supportedImages];
 var markdownSupported = ['.md', ...supportedImages];
@@ -80,7 +80,7 @@ function getFileExt(relativePath) {
   return path3__namespace.parse(relativePath).ext;
 }
 
-// src/src/utilities/import-type.ts
+// src/modified-src/utilities/import-type.ts
 function getImportType(relativePath) {
   switch (getFileExt(relativePath)) {
     case '.js':
@@ -99,7 +99,7 @@ function getImportType(relativePath) {
   }
 }
 
-// src/src/utilities/import-statement-snippet.ts
+// src/modified-src/utilities/import-statement-snippet.ts
 function importStatementSnippet(relativePath, fromFilepath, toFilepath) {
   switch (getFileExt(toFilepath)) {
     case '.js': {
@@ -507,7 +507,7 @@ function isSameDir(from, to) {
   return from === to || from.includes(to);
 }
 
-// src/src/subscriptions/auto-import-on-drop-provider.ts
+// src/modified-src/subscriptions/auto-import-on-drop-provider.ts
 class AutoImportOnDropProvider {
   async provideDocumentDropEdits(_document, position, dataTransfer, token) {
     const dataTransferItem = dataTransfer.get('text/plain');
