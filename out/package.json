@@ -1,41 +1,18 @@
 {
-  "name": "drag-import-relative-path",
-  "displayName": "Drag And Drop Import Relative Path",
+  "name": "drag-and-drop-import-relative-path-fork",
+  "displayName": "Drag And Drop Import Relative Path Fork",
   "description": "This extension improves developer productivity by allowing drag-and-drop file imports.",
-  "publisher": "ElecTreeFrying",
-  "version": "1.0.0",
-  "author": {
-    "name": "John James Ermitaño",
-    "email": "jjgermitano@gmail.com"
-  },
+  "publisher": "ericchase",
+  "version": "2.0.0",
   "icon": "assets/extension-icon.png",
   "engines": {
     "vscode": "^1.70.0"
   },
-  "homepage": "https://github.com/ElecTreeFrying/drag-import-relative-path/blob/master/README.md",
+  "homepage": "https://github.com/ericchase/vsce--drag-and-drop-import-relative-path",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ElecTreeFrying/drag-import-relative-path.git"
+    "url": "https://github.com/ericchase/vsce--drag-and-drop-import-relative-path.git"
   },
-  "bugs": {
-    "email": "jam@fisendo.com",
-    "url": "https://github.com/ElecTreeFrying/drag-import-relative-path/issues"
-  },
-  "badges": [
-    {
-      "url": "https://vsmarketplacebadges.dev/version/ElecTreeFrying.drag-import-relative-path.png",
-      "description": "Version badge",
-      "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path"
-    },
-    {
-      "url": "https://vsmarketplacebadges.dev/downloads-short/ElecTreeFrying.drag-import-relative-path.png",
-      "description": "Downloads badge",
-      "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path"
-    }
-  ],
-  "extensionPack": [
-    "ElecTreeFrying.auto-import"
-  ],
   "galleryBanner": {
     "color": "#494949",
     "theme": "dark"
@@ -79,15 +56,15 @@
   "contributes": {
     "configuration": [
       {
-        "title": "Drag And Drop Import Relative Path",
+        "title": "Drag And Drop Import Relative Path Fork",
         "properties": {
-          "importStatements.script.preserveScriptFileExtension": {
+          "drag-and-drop-import-relative-path-fork.script.preserveScriptFileExtension": {
             "title": "Preserve file extension",
             "description": "Preserve the file extension in the relative path.",
             "type": "boolean",
             "default": false
           },
-          "importStatements.script.javascriptImportStyle": {
+          "drag-and-drop-import-relative-path-fork.script.javascriptImportStyle": {
             "title": "Javascript (.ts)/React Javascript(.tsx) import styles",
             "description": "Supported Javascript (.ts)/React Javascript(.tsx) import styles",
             "type": "string",
@@ -104,7 +81,7 @@
               "const name = import('_relativePath_');"
             ]
           },
-          "importStatements.script.typescriptImportStyle": {
+          "drag-and-drop-import-relative-path-fork.script.typescriptImportStyle": {
             "title": "Typescript (.ts)/React Typescript(.tsx) import styles",
             "description": "Supported Typescript (.ts)/React Typescript(.tsx) import styles",
             "type": "string",
@@ -117,13 +94,13 @@
               "import '_relativePath_';"
             ]
           },
-          "importStatements.styleSheet.preserveStylesheetFileExtension": {
+          "drag-and-drop-import-relative-path-fork.styleSheet.preserveStylesheetFileExtension": {
             "title": "Preserve file extension",
             "description": "Preserve the file extension in the relative path.",
             "type": "boolean",
             "default": false
           },
-          "importStatements.styleSheet.cssImportStyle": {
+          "drag-and-drop-import-relative-path-fork.styleSheet.cssImportStyle": {
             "title": "CSS import styles",
             "description": "Supported CSS import styles",
             "type": "string",
@@ -133,7 +110,7 @@
               "@import url('_relativePath_');"
             ]
           },
-          "importStatements.styleSheet.cssImageImportStyle": {
+          "drag-and-drop-import-relative-path-fork.styleSheet.cssImageImportStyle": {
             "title": "CSS import styles",
             "description": "Supported CSS import styles",
             "type": "string",
@@ -142,7 +119,7 @@
               "url('_relativePath_')"
             ]
           },
-          "importStatements.styleSheet.scssImportStyle": {
+          "drag-and-drop-import-relative-path-fork.styleSheet.scssImportStyle": {
             "title": "SCSS import styles",
             "description": "Supported SCSS import styles",
             "type": "string",
@@ -154,7 +131,7 @@
               "@use '_relativePath_' as *;"
             ]
           },
-          "importStatements.styleSheet.scssImageImportStyle": {
+          "drag-and-drop-import-relative-path-fork.styleSheet.scssImageImportStyle": {
             "title": "SCSS import styles",
             "description": "Supported SCSS import styles",
             "type": "string",
@@ -163,7 +140,7 @@
               "url('_relativePath_')"
             ]
           },
-          "importStatements.markup.htmlScriptImportStyle": {
+          "drag-and-drop-import-relative-path-fork.markup.htmlScriptImportStyle": {
             "title": "HTML import styles for script",
             "description": "Supported HTML import styles for script",
             "type": "string",
@@ -172,7 +149,7 @@
               "<script type=\"text/javascript\" src=\"_relativePath_\"></script>"
             ]
           },
-          "importStatements.markup.htmlImageImportStyle": {
+          "drag-and-drop-import-relative-path-fork.markup.htmlImageImportStyle": {
             "title": "HTML image import styles for script",
             "description": "Supported HTML image import styles for script",
             "type": "string",
@@ -181,7 +158,7 @@
               "<img src=\"_relativePath_\" alt=\"sample\">"
             ]
           },
-          "importStatements.markup.htmlStyleSheetImportStyle": {
+          "drag-and-drop-import-relative-path-fork.markup.htmlStyleSheetImportStyle": {
             "title": "HTML import styles from stylesheet",
             "description": "Supported HTML import styles from stylesheet",
             "type": "string",
@@ -190,7 +167,7 @@
               "<link href=\"_relativePath_\" rel=\"stylesheet\">"
             ]
           },
-          "importStatements.markup.markdownImportStyle": {
+          "drag-and-drop-import-relative-path-fork.markup.markdownImportStyle": {
             "title": "Markdown import styles",
             "description": "Supported markdown import styles",
             "type": "string",
@@ -199,7 +176,7 @@
               "![text](_relativePath_)"
             ]
           },
-          "importStatements.markup.markdownImageImportStyle": {
+          "drag-and-drop-import-relative-path-fork.markup.markdownImageImportStyle": {
             "title": "Markdown image import styles",
             "description": "Supported markdown image import styles",
             "type": "string",

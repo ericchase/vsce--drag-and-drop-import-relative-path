@@ -7,7 +7,7 @@ The `Drag And Drop Import Relative Path` VSCode extension is great! However, it'
 
 Please check the `Releases` page on GitHub to find built `.vsix` files. These files can be dragged directly into VSCode's Extensions sidebar panel to install them.
 
-Please check the `CHANGELOG.md` file for more information about changes.
+Please check the `src/CHANGELOG.md` file for more information about changes.
 
 Another fork to make note of:
 

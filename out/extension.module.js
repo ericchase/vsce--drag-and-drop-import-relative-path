@@ -9,18 +9,10 @@ function _interopNamespaceDefault(e) {
     Object.keys(e).forEach(function (k) {
       if (k !== 'default') {
         var d = Object.getOwnPropertyDescriptor(e, k);
-        Object.defineProperty(
-          n,
-          k,
-          d.get
-            ? d
-            : {
-                enumerable: true,
-                get: function () {
-                  return e[k];
-                },
-              },
-        );
+        Object.defineProperty(n, k, d.get ? d : {
+          enumerable: true,
+          get: function () { return e[k]; }
+        });
       }
     });
   }
@@ -28,54 +20,54 @@ function _interopNamespaceDefault(e) {
   return Object.freeze(n);
 }
 
-var vscode__namespace = /*#__PURE__*/ _interopNamespaceDefault(vscode);
-var path3__namespace = /*#__PURE__*/ _interopNamespaceDefault(path3);
+var vscode__namespace = /*#__PURE__*/_interopNamespaceDefault(vscode);
+var path3__namespace = /*#__PURE__*/_interopNamespaceDefault(path3);
 
 // src/extension.module.ts
 
 // src/modified-src/providers/selector.ts
 var selectors = [
   {
-    language: 'javascript',
-    scheme: 'file',
+    language: "javascript",
+    scheme: "file"
   },
   {
-    language: 'javascriptreact',
-    scheme: 'file',
+    language: "javascriptreact",
+    scheme: "file"
   },
   {
-    language: 'typescript',
-    scheme: 'file',
+    language: "typescript",
+    scheme: "file"
   },
   {
-    language: 'typescriptreact',
-    scheme: 'file',
+    language: "typescriptreact",
+    scheme: "file"
   },
   {
-    language: 'css',
-    scheme: 'file',
+    language: "css",
+    scheme: "file"
   },
   {
-    language: 'scss',
-    scheme: 'file',
+    language: "scss",
+    scheme: "file"
   },
   {
-    language: 'html',
-    scheme: 'file',
+    language: "html",
+    scheme: "file"
   },
   {
-    language: 'markdown',
-    scheme: 'file',
-  },
+    language: "markdown",
+    scheme: "file"
+  }
 ];
 
 // src/modified-src/providers/supported-file-extensions.ts
-var supportedImages = ['.gif', '.jpeg', '.jpg', '.png', '.webp'];
-var htmlSupported = ['.js', '.jsx', '.ts', '.tsx', '.css', ...supportedImages];
-var markdownSupported = ['.md', ...supportedImages];
-var cssSupported = ['.css', ...supportedImages];
-var scssSupported = ['.scss', '.css', ...supportedImages];
-var permittedExts = ['.html', '.md', '.css', '.scss', '.tsx', '.jsx'];
+var supportedImages = [".gif", ".jpeg", ".jpg", ".png", ".webp"];
+var htmlSupported = [".js", ".jsx", ".ts", ".tsx", ".css", ...supportedImages];
+var markdownSupported = [".md", ...supportedImages];
+var cssSupported = [".css", ...supportedImages];
+var scssSupported = [".scss", ".css", ...supportedImages];
+var permittedExts = [".html", ".md", ".css", ".scss", ".tsx", ".jsx"];
 function getFileExt(relativePath) {
   return path3__namespace.parse(relativePath).ext;
 }
@@ -83,51 +75,51 @@ function getFileExt(relativePath) {
 // src/modified-src/utilities/import-type.ts
 function getImportType(relativePath) {
   switch (getFileExt(relativePath)) {
-    case '.js':
-    case '.jsx':
-    case '.ts':
-    case '.tsx':
-      return 'script';
-    case '.css':
-      return 'stylesheet';
-    case '.scss':
+    case ".js":
+    case ".jsx":
+    case ".ts":
+    case ".tsx":
+      return "script";
+    case ".css":
+      return "stylesheet";
+    case ".scss":
       return null;
-    case '.md':
-      return 'markdown';
+    case ".md":
+      return "markdown";
     default:
-      return 'image';
+      return "image";
   }
 }
 
 // src/modified-src/utilities/import-statement-snippet.ts
 function importStatementSnippet(relativePath, fromFilepath, toFilepath) {
   switch (getFileExt(toFilepath)) {
-    case '.js': {
+    case ".js": {
       return snippets.javascript.snippet(relativePath, fromFilepath);
     }
-    case '.jsx': {
+    case ".jsx": {
       return snippets.jsx.snippet(relativePath, fromFilepath);
     }
-    case '.ts': {
+    case ".ts": {
       return snippets.typescript.snippet(relativePath, fromFilepath);
     }
-    case '.tsx': {
+    case ".tsx": {
       return snippets.tsx.snippet(relativePath, fromFilepath);
     }
-    case '.css': {
+    case ".css": {
       return snippets.css.snippet(relativePath, fromFilepath);
     }
-    case '.scss': {
+    case ".scss": {
       return snippets.scss.snippet(relativePath, fromFilepath);
     }
-    case '.html': {
+    case ".html": {
       return snippets.html.snippet(relativePath, fromFilepath);
     }
-    case '.md': {
+    case ".md": {
       return snippets.markdown.snippet(relativePath, fromFilepath);
     }
   }
-  throw new Error('Matched nothing.');
+  throw new Error("Matched nothing.");
 }
 var providers;
 ((providers) => {
@@ -140,94 +132,94 @@ var providers;
     { value: 5, description: "var name = require('_relativePath_');" },
     { value: 6, description: "const name = require('_relativePath_');" },
     { value: 7, description: "var name = import('_relativePath_');" },
-    { value: 8, description: "const name = import('_relativePath_');" },
+    { value: 8, description: "const name = import('_relativePath_');" }
   ];
   providers.typescript = [
     { value: 0, description: "import name from '_relativePath_';" },
     { value: 1, description: "import { name } from '_relativePath_';" },
     { value: 2, description: "import { default as name } from '_relativePath_';" },
     { value: 3, description: "import * as name from '_relativePath_';" },
-    { value: 4, description: "import '_relativePath_';" },
+    { value: 4, description: "import '_relativePath_';" }
   ];
   providers.css = [
     { value: 0, description: "@import '_relativePath_';" },
-    { value: 1, description: "@import url('_relativePath_');" },
+    { value: 1, description: "@import url('_relativePath_');" }
   ];
   providers.cssImage = [{ value: 0, description: "url('_relativePath_')" }];
   providers.scss = [
     { value: 0, description: "@import '_relativePath_';" },
     { value: 1, description: "@import url('_relativePath_');" },
     { value: 2, description: "@use '_relativePath_';" },
-    { value: 3, description: "@use '_relativePath_' as *;" },
+    { value: 3, description: "@use '_relativePath_' as *;" }
   ];
   providers.scssImage = [{ value: 0, description: "url('_relativePath_')" }];
   providers.HTMLScript = [{ value: 0, description: '<script src="_relativePath_"></script>' }];
   providers.HTMLImage = [{ value: 0, description: '<img src="_relativePath_" alt="sample">' }];
   providers.HTMLStylesheet = [{ value: 0, description: '<link rel="stylesheet" href="_relativePath_">' }];
-  providers.markdown = [{ value: 0, description: '![text](_relativePath_)' }];
+  providers.markdown = [{ value: 0, description: "![text](_relativePath_)" }];
   providers.markdownImage = [
     { value: 0, description: '![alt-text](_relativePath_ "Hover text")' },
-    { value: 1, description: '![alt-text][image] / [image]: _relativePath_ "Hover text"' },
+    { value: 1, description: '![alt-text][image] / [image]: _relativePath_ "Hover text"' }
   ];
-})((providers ||= {}));
+})(providers ||= {});
 var snippets;
 ((snippets) => {
   ((css) => {
     function snippet(relativePath, fromFilepath) {
       switch (getImportType(fromFilepath)) {
-        case 'image':
+        case "image":
           return statements.cssImageImportStatement(relativePath + getFileExt(fromFilepath));
         default:
           return statements.cssImportStatement(relativePath + getFileExt(fromFilepath));
       }
     }
     css.snippet = snippet;
-  })((snippets.css ||= {}));
+  })(snippets.css ||= {});
   ((html) => {
     function snippet(relativePath, fromFilepath) {
       switch (getImportType(fromFilepath)) {
-        case 'script':
+        case "script":
           return statements.htmlScriptImportStatement(relativePath + getFileExt(fromFilepath));
-        case 'image':
+        case "image":
           return statements.htmlImageImportStatement(relativePath + getFileExt(fromFilepath));
-        case 'stylesheet':
+        case "stylesheet":
           return statements.htmlStylesheetImportStatement(relativePath + getFileExt(fromFilepath));
       }
-      throw new Error('Matched nothing.');
+      throw new Error("Matched nothing.");
     }
     html.snippet = snippet;
-  })((snippets.html ||= {}));
+  })(snippets.html ||= {});
   ((javascript) => {
     function snippet(relativePath, fromFilepath) {
-      const preserve = vscode__namespace.workspace.getConfiguration('auto-import.importStatement.script').get('preserveScriptFileExtension');
-      const fileType = preserve ? getFileExt(fromFilepath) : '';
+      const preserve = vscode__namespace.workspace.getConfiguration("drag-and-drop-import-relative-path-fork.script").get("preserveScriptFileExtension");
+      const fileType = preserve ? getFileExt(fromFilepath) : "";
       return statements.javascriptImportStatement(relativePath + fileType);
     }
     javascript.snippet = snippet;
-  })((snippets.javascript ||= {}));
+  })(snippets.javascript ||= {});
   ((jsx) => {
     function snippet(relativePath, fromFilepath) {
       switch (getFileExt(fromFilepath)) {
-        case '.gif':
-        case '.jpeg':
-        case '.jpg':
-        case '.png':
-        case '.webp':
-        case '.json':
-        case '.js':
-        case '.jsx':
-        case '.html':
-        case '.yml':
-        case '.yaml':
-        case '.md': {
+        case ".gif":
+        case ".jpeg":
+        case ".jpg":
+        case ".png":
+        case ".webp":
+        case ".json":
+        case ".js":
+        case ".jsx":
+        case ".html":
+        case ".yml":
+        case ".yaml":
+        case ".md": {
           return new vscode__namespace.SnippetString(`import name$1 from '${relativePath + getFileExt(fromFilepath)}';`);
         }
-        case '.woff':
-        case '.woff2':
-        case '.ttf':
-        case '.eot':
-        case '.css':
-        case '.scss': {
+        case ".woff":
+        case ".woff2":
+        case ".ttf":
+        case ".eot":
+        case ".css":
+        case ".scss": {
           return new vscode__namespace.SnippetString(`import '${relativePath + getFileExt(fromFilepath)}';`);
         }
         default: {
@@ -236,23 +228,23 @@ var snippets;
       }
     }
     jsx.snippet = snippet;
-  })((snippets.jsx ||= {}));
+  })(snippets.jsx ||= {});
   ((markdown) => {
     function snippet(relativePath, fromFilepath) {
       switch (getImportType(fromFilepath)) {
-        case 'markdown':
+        case "markdown":
           return statements.markdownImportStatement(relativePath + getFileExt(fromFilepath));
-        case 'image':
+        case "image":
           return statements.markdownImageImportStatement(relativePath + getFileExt(fromFilepath));
       }
-      throw new Error('Matched nothing.');
+      throw new Error("Matched nothing.");
     }
     markdown.snippet = snippet;
-  })((snippets.markdown ||= {}));
+  })(snippets.markdown ||= {});
   ((scss) => {
     function snippet(relativePath, fromFilepath) {
       switch (getImportType(fromFilepath)) {
-        case 'image':
+        case "image":
           return statements.cssImageImportStatement(relativePath + getFileExt(fromFilepath));
         default:
           return statements.scssImportStatement(relativePath + getScssFileExt(fromFilepath));
@@ -260,38 +252,38 @@ var snippets;
     }
     scss.snippet = snippet;
     function getScssFileExt(fromFilepath) {
-      if (getFileExt(fromFilepath) === '.css') {
+      if (getFileExt(fromFilepath) === ".css") {
         return getFileExt(fromFilepath);
       } else {
-        const preserve = vscode__namespace.workspace.getConfiguration('auto-import.importStatement.styleSheet').get('preserveStylesheetFileExtension');
-        return preserve ? getFileExt(fromFilepath) : '';
+        const preserve = vscode__namespace.workspace.getConfiguration("drag-and-drop-import-relative-path-fork.styleSheet").get("preserveStylesheetFileExtension");
+        return preserve ? getFileExt(fromFilepath) : "";
       }
     }
-  })((snippets.scss ||= {}));
+  })(snippets.scss ||= {});
   ((tsx) => {
     function snippet(relativePath, fromFilepath) {
       switch (getFileExt(fromFilepath)) {
-        case '.gif':
-        case '.jpeg':
-        case '.jpg':
-        case '.png':
-        case '.webp':
-        case '.json':
-        case '.ts':
-        case '.js':
-        case '.tsx':
-        case '.html':
-        case '.yml':
-        case '.yaml':
-        case '.md': {
+        case ".gif":
+        case ".jpeg":
+        case ".jpg":
+        case ".png":
+        case ".webp":
+        case ".json":
+        case ".ts":
+        case ".js":
+        case ".tsx":
+        case ".html":
+        case ".yml":
+        case ".yaml":
+        case ".md": {
           return new vscode__namespace.SnippetString(`import name$1 from '${relativePath + getFileExt(fromFilepath)}';`);
         }
-        case '.woff':
-        case '.woff2':
-        case '.ttf':
-        case '.eot':
-        case '.css':
-        case '.scss': {
+        case ".woff":
+        case ".woff2":
+        case ".ttf":
+        case ".eot":
+        case ".css":
+        case ".scss": {
           return new vscode__namespace.SnippetString(`import '${relativePath + getFileExt(fromFilepath)}';`);
         }
         default: {
@@ -300,20 +292,20 @@ var snippets;
       }
     }
     tsx.snippet = snippet;
-  })((snippets.tsx ||= {}));
+  })(snippets.tsx ||= {});
   ((typescript) => {
     function snippet(relativePath, fromFilepath) {
-      const preserve = vscode__namespace.workspace.getConfiguration('auto-import.importStatement.script').get('preserveScriptFileExtension');
-      let fileType = preserve ? getFileExt(fromFilepath) : '';
+      const preserve = vscode__namespace.workspace.getConfiguration("drag-and-drop-import-relative-path-fork.script").get("preserveScriptFileExtension");
+      let fileType = preserve ? getFileExt(fromFilepath) : "";
       return statements.typescriptImportStatement(relativePath + fileType);
     }
     typescript.snippet = snippet;
-  })((snippets.typescript ||= {}));
-})((snippets ||= {}));
+  })(snippets.typescript ||= {});
+})(snippets ||= {});
 var statements;
 ((statements) => {
   function cssImportStatement(relativePath) {
-    let configValue = vscode__namespace.workspace.getConfiguration('auto-import.importStatement.styleSheet').get('cssImportStyle');
+    let configValue = vscode__namespace.workspace.getConfiguration("drag-and-drop-import-relative-path-fork.styleSheet").get("cssImportStyle");
     configValue = providers.css.find((config) => config.description === configValue)?.value;
     switch (configValue) {
       case 0:
@@ -326,7 +318,7 @@ var statements;
   }
   statements.cssImportStatement = cssImportStatement;
   function cssImageImportStatement(relativePath) {
-    let configValue = vscode__namespace.workspace.getConfiguration('auto-import.importStatement.styleSheet').get('cssImageImportStyle');
+    let configValue = vscode__namespace.workspace.getConfiguration("drag-and-drop-import-relative-path-fork.styleSheet").get("cssImageImportStyle");
     configValue = providers.cssImage.find((config) => config.description === configValue)?.value;
     switch (configValue) {
       case 0:
@@ -338,7 +330,7 @@ var statements;
   statements.cssImageImportStatement = cssImageImportStatement;
   function scssImportStatement(relativePath) {
     relativePath = parsePartialFile(relativePath);
-    let configValue = vscode__namespace.workspace.getConfiguration('auto-import.importStatement.styleSheet').get('scssImportStyle');
+    let configValue = vscode__namespace.workspace.getConfiguration("drag-and-drop-import-relative-path-fork.styleSheet").get("scssImportStyle");
     configValue = providers.scss.find((config) => config.description === configValue)?.value;
     switch (configValue) {
       case 0:
@@ -355,13 +347,13 @@ var statements;
   }
   statements.scssImportStatement = scssImportStatement;
   function parsePartialFile(relativePath) {
-    const arr = relativePath.split('/');
+    const arr = relativePath.split("/");
     const lastElemIndex = arr.length - 1;
-    arr[lastElemIndex].startsWith('_') && (arr[lastElemIndex] = arr[lastElemIndex].substring(1));
-    return arr.join('/');
+    arr[lastElemIndex].startsWith("_") && (arr[lastElemIndex] = arr[lastElemIndex].substring(1));
+    return arr.join("/");
   }
   function scssImageImportStatement(relativePath) {
-    let configValue = vscode__namespace.workspace.getConfiguration('auto-import.importStatement.styleSheet').get('scssImageImportStyle');
+    let configValue = vscode__namespace.workspace.getConfiguration("drag-and-drop-import-relative-path-fork.styleSheet").get("scssImageImportStyle");
     configValue = providers.scssImage.find((config) => config.description === configValue)?.value;
     switch (configValue) {
       case 0:
@@ -372,18 +364,18 @@ var statements;
   }
   statements.scssImageImportStatement = scssImageImportStatement;
   function htmlScriptImportStatement(relativePath) {
-    let configValue = vscode__namespace.workspace.getConfiguration('auto-import.importStatement.markup').get('htmlScriptImportStyle');
+    let configValue = vscode__namespace.workspace.getConfiguration("drag-and-drop-import-relative-path-fork.markup").get("htmlScriptImportStyle");
     configValue = providers.HTMLScript.find((config) => config.description === configValue)?.value;
     switch (configValue) {
       case 0:
-        return new vscode__namespace.SnippetString(`<script src="${relativePath}"></script>`);
+        return new vscode__namespace.SnippetString(`<script src="${relativePath}" defer></script>`);
       default:
-        return new vscode__namespace.SnippetString(`<script src="${relativePath}"></script>`);
+        return new vscode__namespace.SnippetString(`<script src="${relativePath}" defer></script>`);
     }
   }
   statements.htmlScriptImportStatement = htmlScriptImportStatement;
   function htmlImageImportStatement(relativePath) {
-    let configValue = vscode__namespace.workspace.getConfiguration('auto-import.importStatement.markup').get('htmlImageImportStyle');
+    let configValue = vscode__namespace.workspace.getConfiguration("drag-and-drop-import-relative-path-fork.markup").get("htmlImageImportStyle");
     configValue = providers.HTMLImage.find((config) => config.description === configValue)?.value;
     switch (configValue) {
       case 0:
@@ -394,7 +386,7 @@ var statements;
   }
   statements.htmlImageImportStatement = htmlImageImportStatement;
   function htmlStylesheetImportStatement(relativePath) {
-    let configValue = vscode__namespace.workspace.getConfiguration('auto-import.importStatement.markup').get('htmlStyleSheetImportStyle');
+    let configValue = vscode__namespace.workspace.getConfiguration("drag-and-drop-import-relative-path-fork.markup").get("htmlStyleSheetImportStyle");
     configValue = providers.HTMLStylesheet.find((config) => config.description === configValue)?.value;
     switch (configValue) {
       case 0:
@@ -405,7 +397,7 @@ var statements;
   }
   statements.htmlStylesheetImportStatement = htmlStylesheetImportStatement;
   function markdownImportStatement(relativePath) {
-    let configValue = vscode__namespace.workspace.getConfiguration('auto-import.importStatement.markup').get('markdownImportStyle');
+    let configValue = vscode__namespace.workspace.getConfiguration("drag-and-drop-import-relative-path-fork.markup").get("markdownImportStyle");
     configValue = providers.markdown.find((config) => config.description === configValue)?.value;
     switch (configValue) {
       case 0:
@@ -416,7 +408,7 @@ var statements;
   }
   statements.markdownImportStatement = markdownImportStatement;
   function markdownImageImportStatement(relativePath) {
-    let configValue = vscode__namespace.workspace.getConfiguration('auto-import.importStatement.markup').get('markdownImageImportStyle');
+    let configValue = vscode__namespace.workspace.getConfiguration("drag-and-drop-import-relative-path-fork.markup").get("markdownImageImportStyle");
     configValue = providers.markdownImage.find((config) => config.description === configValue)?.value;
     switch (configValue) {
       case 0:
@@ -429,7 +421,7 @@ var statements;
   }
   statements.markdownImageImportStatement = markdownImageImportStatement;
   function javascriptImportStatement(relativePath) {
-    let configValue = vscode__namespace.workspace.getConfiguration('auto-import.importStatement.script').get('javascriptImportStyle');
+    let configValue = vscode__namespace.workspace.getConfiguration("drag-and-drop-import-relative-path-fork.script").get("javascriptImportStyle");
     configValue = providers.javascript.find((config) => config.description === configValue)?.value;
     switch (configValue) {
       case 0:
@@ -456,7 +448,7 @@ var statements;
   }
   statements.javascriptImportStatement = javascriptImportStatement;
   function typescriptImportStatement(relativePath) {
-    let configValue = vscode__namespace.workspace.getConfiguration('auto-import.importStatement.script').get('typescriptImportStyle');
+    let configValue = vscode__namespace.workspace.getConfiguration("drag-and-drop-import-relative-path-fork.script").get("typescriptImportStyle");
     configValue = providers.typescript.find((config) => config.description === configValue)?.value;
     switch (configValue) {
       case 0:
@@ -475,19 +467,16 @@ var statements;
   }
   statements.typescriptImportStatement = typescriptImportStatement;
   function importName(relativePath) {
-    if (relativePath.includes('.component') || relativePath.includes('.directive') || relativePath.includes('.pipe')) {
-      const snackCase = path3__namespace.basename(relativePath).replace(/\./g, '-');
-      return snackCase
-        .split('-')
-        .map((e) => e[0].toUpperCase() + e.slice(1))
-        .join('');
+    if (relativePath.includes(".component") || relativePath.includes(".directive") || relativePath.includes(".pipe")) {
+      const snackCase = path3__namespace.basename(relativePath).replace(/\./g, "-");
+      return snackCase.split("-").map((e) => e[0].toUpperCase() + e.slice(1)).join("");
     } else {
-      return '$1';
+      return "$1";
     }
   }
-})((statements ||= {}));
+})(statements ||= {});
 function getRelativePath(from, to) {
-  const startChars = isSameDir(from, to) ? './' : '';
+  const startChars = isSameDir(from, to) ? "./" : "";
   const relativePath = toWindowsPath(relative2(from, to));
   return startChars + removeFileExt(relativePath);
 }
@@ -495,7 +484,7 @@ function relative2(from, to) {
   return path3__namespace.relative(path3__namespace.dirname(from), to);
 }
 function toWindowsPath(relativePath) {
-  return relativePath.replace(/\\/gi, '/');
+  return relativePath.replace(/\\/gi, "/");
 }
 function removeFileExt(relativePath) {
   const ext = getFileExt(relativePath);
@@ -510,7 +499,7 @@ function isSameDir(from, to) {
 // src/modified-src/subscriptions/auto-import-on-drop-provider.ts
 class AutoImportOnDropProvider {
   async provideDocumentDropEdits(_document, position, dataTransfer, token) {
-    const dataTransferItem = dataTransfer.get('text/plain');
+    const dataTransferItem = dataTransfer.get("text/plain");
     if (dataTransferItem === undefined) {
       return;
     }
@@ -521,36 +510,24 @@ class AutoImportOnDropProvider {
     }
     const dropFileExt = getFileExt(dropFilePath);
     const dragFileExt = getFileExt(dragFilePath);
-    if (
-      any_true(
-        () => {
-          return permittedExts.includes(dropFileExt) === false && dragFileExt !== dropFileExt;
-        },
-        () => {
-          return dragFileExt === '.html' && dropFileExt === '.html';
-        },
-        () => {
-          return htmlSupported.includes(dragFileExt) === false && dropFileExt === '.html';
-        },
-        () => {
-          return markdownSupported.includes(dragFileExt) === false && dropFileExt === '.md';
-        },
-        () => {
-          return cssSupported.includes(dragFileExt) === false && dropFileExt === '.css';
-        },
-        () => {
-          return scssSupported.includes(dragFileExt) === false && dropFileExt === '.scss';
-        },
-      )
-    ) {
+    if (any_true(() => {
+      return permittedExts.includes(dropFileExt) === false && dragFileExt !== dropFileExt;
+    }, () => {
+      return dragFileExt === ".html" && dropFileExt === ".html";
+    }, () => {
+      return htmlSupported.includes(dragFileExt) === false && dropFileExt === ".html";
+    }, () => {
+      return markdownSupported.includes(dragFileExt) === false && dropFileExt === ".md";
+    }, () => {
+      return cssSupported.includes(dragFileExt) === false && dropFileExt === ".css";
+    }, () => {
+      return scssSupported.includes(dragFileExt) === false && dropFileExt === ".scss";
+    })) {
       return;
     }
     const snippet = importStatementSnippet(getRelativePath(dropFilePath, dragFilePath), dragFilePath, dropFilePath);
-    if (
-      snippet.value ===
-      `
-`
-    ) {
+    if (snippet.value === `
+`) {
       return;
     }
     return { insertText: snippet };
@@ -558,14 +535,15 @@ class AutoImportOnDropProvider {
 }
 function any_true(...conditions) {
   for (const condition of conditions) {
-    if (condition() === true) return true;
+    if (condition() === true)
+      return true;
   }
   return false;
 }
 
 // src/extension.module.ts
 function activate(context) {
-  context.subscriptions.push(vscode__namespace.languages.registerDocumentDropEditProvider(selectors, new AutoImportOnDropProvider()));
+  context.subscriptions.push(vscode__namespace.languages.registerDocumentDropEditProvider(selectors, new AutoImportOnDropProvider));
 }
 
 exports.activate = activate;

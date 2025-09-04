@@ -1,0 +1,12 @@
+{
+  "name": "drag-and-drop-import-relative-path-fork",
+  "displayName": "Drag And Drop Import Relative Path Fork",
+  "publisher": "ericchase",
+  "version": "2.0.0",
+  "homepage": "https://github.com/ericchase/vsce--drag-and-drop-import-relative-path",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ericchase/vsce--drag-and-drop-import-relative-path.git"
+  },
+  "main": "./extension.module.js"
+}

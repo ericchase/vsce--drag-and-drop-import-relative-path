@@ -161,7 +161,7 @@ namespace snippets {
      * @returns Import statement string
      */
     export function snippet(relativePath: string, fromFilepath: string): vscode.SnippetString {
-      const preserve = vscode.workspace.getConfiguration('auto-import.importStatement.script').get('preserveScriptFileExtension');
+      const preserve = vscode.workspace.getConfiguration('drag-and-drop-import-relative-path-fork.script').get('preserveScriptFileExtension');
       const fileType = preserve ? getFileExt(fromFilepath) : '';
       return statements.javascriptImportStatement(relativePath + fileType);
     }
@@ -240,7 +240,7 @@ namespace snippets {
         // Auto preserve file extension if file extension is CSS
         return getFileExt(fromFilepath);
       } else {
-        const preserve = vscode.workspace.getConfiguration('auto-import.importStatement.styleSheet').get('preserveStylesheetFileExtension');
+        const preserve = vscode.workspace.getConfiguration('drag-and-drop-import-relative-path-fork.styleSheet').get('preserveStylesheetFileExtension');
         return preserve ? getFileExt(fromFilepath) : '';
       }
     }
@@ -283,11 +283,10 @@ namespace snippets {
      * Returns the import statement
      * @param {string} relativePath Relative path of dragged file and active text editor.
      * @param {string} fromFilepath File extension of the active text editor.
-     * @param {string} toFilepath File extension of the dragged file.
      * @returns Import statement string
      */
     export function snippet(relativePath: string, fromFilepath: string): vscode.SnippetString {
-      const preserve = vscode.workspace.getConfiguration('auto-import.importStatement.script').get('preserveScriptFileExtension');
+      const preserve = vscode.workspace.getConfiguration('drag-and-drop-import-relative-path-fork.script').get('preserveScriptFileExtension');
       let fileType = preserve ? getFileExt(fromFilepath) : '';
       return statements.typescriptImportStatement(relativePath + fileType);
     }
@@ -301,7 +300,7 @@ namespace statements {
    * @returns Import statement string
    */
   export function cssImportStatement(relativePath: string): vscode.SnippetString {
-    let configValue = vscode.workspace.getConfiguration('auto-import.importStatement.styleSheet').get('cssImportStyle');
+    let configValue = vscode.workspace.getConfiguration('drag-and-drop-import-relative-path-fork.styleSheet').get('cssImportStyle');
     configValue = providers.css.find((config: ImportStyle) => config.description === configValue)?.value;
     switch (configValue as number) {
       case 0:
@@ -318,7 +317,7 @@ namespace statements {
    * @returns Import statement string
    */
   export function cssImageImportStatement(relativePath: string): vscode.SnippetString {
-    let configValue = vscode.workspace.getConfiguration('auto-import.importStatement.styleSheet').get('cssImageImportStyle');
+    let configValue = vscode.workspace.getConfiguration('drag-and-drop-import-relative-path-fork.styleSheet').get('cssImageImportStyle');
     configValue = providers.cssImage.find((config: ImportStyle) => config.description === configValue)?.value;
     switch (configValue as number) {
       case 0:
@@ -334,7 +333,7 @@ namespace statements {
    */
   export function scssImportStatement(relativePath: string): vscode.SnippetString {
     relativePath = parsePartialFile(relativePath);
-    let configValue = vscode.workspace.getConfiguration('auto-import.importStatement.styleSheet').get('scssImportStyle');
+    let configValue = vscode.workspace.getConfiguration('drag-and-drop-import-relative-path-fork.styleSheet').get('scssImportStyle');
     configValue = providers.scss.find((config: ImportStyle) => config.description === configValue)?.value;
     switch (configValue as number) {
       case 0:
@@ -361,7 +360,7 @@ namespace statements {
    * @returns Import statement string
    */
   export function scssImageImportStatement(relativePath: string): vscode.SnippetString {
-    let configValue = vscode.workspace.getConfiguration('auto-import.importStatement.styleSheet').get('scssImageImportStyle');
+    let configValue = vscode.workspace.getConfiguration('drag-and-drop-import-relative-path-fork.styleSheet').get('scssImageImportStyle');
     configValue = providers.scssImage.find((config: ImportStyle) => config.description === configValue)?.value;
     switch (configValue as number) {
       case 0:
@@ -376,13 +375,13 @@ namespace statements {
    * @returns Import statement string
    */
   export function htmlScriptImportStatement(relativePath: string): vscode.SnippetString {
-    let configValue = vscode.workspace.getConfiguration('auto-import.importStatement.markup').get('htmlScriptImportStyle');
+    let configValue = vscode.workspace.getConfiguration('drag-and-drop-import-relative-path-fork.markup').get('htmlScriptImportStyle');
     configValue = providers.HTMLScript.find((config: ImportStyle) => config.description === configValue)?.value;
     switch (configValue as number) {
       case 0:
-        return new vscode.SnippetString(`<script src=\"${relativePath}\"></script>`);
+        return new vscode.SnippetString(`<script src=\"${relativePath}\" defer></script>`);
       default:
-        return new vscode.SnippetString(`<script src=\"${relativePath}\"></script>`);
+        return new vscode.SnippetString(`<script src=\"${relativePath}\" defer></script>`);
     }
   }
   /**
@@ -391,7 +390,7 @@ namespace statements {
    * @returns Import statement string
    */
   export function htmlImageImportStatement(relativePath: string): vscode.SnippetString {
-    let configValue = vscode.workspace.getConfiguration('auto-import.importStatement.markup').get('htmlImageImportStyle');
+    let configValue = vscode.workspace.getConfiguration('drag-and-drop-import-relative-path-fork.markup').get('htmlImageImportStyle');
     configValue = providers.HTMLImage.find((config: ImportStyle) => config.description === configValue)?.value;
     switch (configValue as number) {
       case 0:
@@ -406,7 +405,7 @@ namespace statements {
    * @returns Import statement string
    */
   export function htmlStylesheetImportStatement(relativePath: string): vscode.SnippetString {
-    let configValue = vscode.workspace.getConfiguration('auto-import.importStatement.markup').get('htmlStyleSheetImportStyle');
+    let configValue = vscode.workspace.getConfiguration('drag-and-drop-import-relative-path-fork.markup').get('htmlStyleSheetImportStyle');
     configValue = providers.HTMLStylesheet.find((config: ImportStyle) => config.description === configValue)?.value;
     switch (configValue as number) {
       case 0:
@@ -421,7 +420,7 @@ namespace statements {
    * @returns Import statement string
    */
   export function markdownImportStatement(relativePath: string): vscode.SnippetString {
-    let configValue = vscode.workspace.getConfiguration('auto-import.importStatement.markup').get('markdownImportStyle');
+    let configValue = vscode.workspace.getConfiguration('drag-and-drop-import-relative-path-fork.markup').get('markdownImportStyle');
     configValue = providers.markdown.find((config: ImportStyle) => config.description === configValue)?.value;
     switch (configValue as number) {
       case 0:
@@ -436,7 +435,7 @@ namespace statements {
    * @returns Import statement string
    */
   export function markdownImageImportStatement(relativePath: string): vscode.SnippetString {
-    let configValue = vscode.workspace.getConfiguration('auto-import.importStatement.markup').get('markdownImageImportStyle');
+    let configValue = vscode.workspace.getConfiguration('drag-and-drop-import-relative-path-fork.markup').get('markdownImageImportStyle');
     configValue = providers.markdownImage.find((config: ImportStyle) => config.description === configValue)?.value;
     switch (configValue as number) {
       case 0:
@@ -453,7 +452,7 @@ namespace statements {
    * @returns Import statement string
    */
   export function javascriptImportStatement(relativePath: string): vscode.SnippetString {
-    let configValue = vscode.workspace.getConfiguration('auto-import.importStatement.script').get('javascriptImportStyle');
+    let configValue = vscode.workspace.getConfiguration('drag-and-drop-import-relative-path-fork.script').get('javascriptImportStyle');
     configValue = providers.javascript.find((config: ImportStyle) => config.description === configValue)?.value;
     switch (configValue as number) {
       case 0:
@@ -484,7 +483,7 @@ namespace statements {
    * @returns Import statement string
    */
   export function typescriptImportStatement(relativePath: string): vscode.SnippetString {
-    let configValue = vscode.workspace.getConfiguration('auto-import.importStatement.script').get('typescriptImportStyle');
+    let configValue = vscode.workspace.getConfiguration('drag-and-drop-import-relative-path-fork.script').get('typescriptImportStyle');
     configValue = providers.typescript.find((config: ImportStyle) => config.description === configValue)?.value;
     switch (configValue as number) {
       case 0:

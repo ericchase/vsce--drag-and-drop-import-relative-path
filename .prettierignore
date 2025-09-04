@@ -12,5 +12,7 @@ bun.lock
 
 # up to you whether you want to format the build files
 # /out/
+/out/extension.module.js
+
 # we don't want to format the original repo
 /src/original-repo/
